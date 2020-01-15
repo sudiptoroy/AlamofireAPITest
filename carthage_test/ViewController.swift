@@ -11,11 +11,28 @@ import Alamofire
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    
+    private let networkingClient = NetworkingClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     // https://api.darksky.net/forecast/9c67136d3ccda3583fea70f0a782be0d/37.8267,-122.4233
 
+    @IBAction func executeRequest(_ sender: Any) {
+        guard let urlToExecute = URL (string: "https://api.darksky.net/forecast/9c67136d3ccda3583fea70f0a782be0d/37.8267,-122.4233") else {
+            return
+        }
+        
+        networkingClient.execute(urlToExecute) { (json, error) in
+            if let error = error {
+                self.textView.text = error.localizedDescription
+            } else if let json = json {
+                self.textView.text = json.description
+            }
+        }
+    }
 }
 
