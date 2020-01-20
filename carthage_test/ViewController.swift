@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     private let networkingClient = NetworkingClient()
+    private let timeConvertion = TimeConversion()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,13 @@ class ViewController: UIViewController {
                 // Show summary dict in log
                 print("Summary")
                 print(dataDict!["summary"] as Any)
+                
+                // Show time
+                let time = dataDict!["time"] as? Double
+                let getTime = self.timeConvertion.getDateFromTimeStamp(timeStamp: time!)
+                print("Time = \(getTime)")
+                self.textView.text = getTime
+                
                 
                 // Show summary from currently from Weather api
                 self.textView.text = dataDict!["summary"] as? String

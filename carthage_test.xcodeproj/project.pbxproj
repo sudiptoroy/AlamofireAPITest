@@ -14,6 +14,7 @@
 		4814844823CDC11F00D8815B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4814844723CDC11F00D8815B /* Assets.xcassets */; };
 		4814844B23CDC11F00D8815B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4814844923CDC11F00D8815B /* LaunchScreen.storyboard */; };
 		4814845623CDC11F00D8815B /* carthage_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814845523CDC11F00D8815B /* carthage_testTests.swift */; };
+		483498C523D5C7B800B99A4B /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483498C423D5C7B800B99A4B /* utils.swift */; };
 		48CC1C7D23CF132E00747C5F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48CC1C7C23CF132E00747C5F /* Alamofire.framework */; };
 		48CC1C8023CF18AD00747C5F /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC1C7F23CF18AD00747C5F /* NetworkingClient.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		4814845123CDC11F00D8815B /* carthage_testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = carthage_testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4814845523CDC11F00D8815B /* carthage_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carthage_testTests.swift; sourceTree = "<group>"; };
 		4814845723CDC11F00D8815B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		483498C423D5C7B800B99A4B /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		48CC1C7C23CF132E00747C5F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		48CC1C7F23CF18AD00747C5F /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 			children = (
 				4814843D23CDC11E00D8815B /* AppDelegate.swift */,
 				48CC1C7F23CF18AD00747C5F /* NetworkingClient.swift */,
+				483498C423D5C7B800B99A4B /* utils.swift */,
 				4814843F23CDC11E00D8815B /* ViewController.swift */,
 				4814844123CDC11E00D8815B /* Main.storyboard */,
 				4814844723CDC11F00D8815B /* Assets.xcassets */,
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483498C523D5C7B800B99A4B /* utils.swift in Sources */,
 				48CC1C8023CF18AD00747C5F /* NetworkingClient.swift in Sources */,
 				4814844023CDC11E00D8815B /* ViewController.swift in Sources */,
 				4814843E23CDC11E00D8815B /* AppDelegate.swift in Sources */,
