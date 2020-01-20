@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 
+
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
     // https://api.darksky.net/forecast/9c67136d3ccda3583fea70f0a782be0d/37.8267,-122.4233
 
     @IBAction func executeRequest(_ sender: Any) {
-        guard let urlToExecute = URL (string: "https://api.darksky.net/forecast/9c67136d3ccda3583fea70f0a782be0d/23.8103,90.4125") else {
+        guard let urlToExecute = URL (string: "https://api.darksky.net/forecast/9c67136d3ccda3583fea70f0a782be0d/37.8267,-122.4233") else {
             return
         }
         
@@ -30,9 +32,21 @@ class ViewController: UIViewController {
             if let error = error {
                 self.textView.text = error.localizedDescription
             } else if let json = json {
-                self.textView.text = json.description
+                //self.textView.text = json.description
+                //let dictData = convertStringToDictionary(text: json.description)
+                print("Currently = \(json[0]["currently"] as Any)")
+                
+                // Assign currently data to dataDict wich is a dictionary from json array
+                let dataDict = json[0]["currently"] as? [String : Any]
+                
+                // Show summary dict in log
+                print("Summary")
+                print(dataDict!["summary"] as Any)
+                
+                // Show summary from currently from Weather api
+                self.textView.text = dataDict!["summary"] as? String
+            
             }
         }
     }
 }
-

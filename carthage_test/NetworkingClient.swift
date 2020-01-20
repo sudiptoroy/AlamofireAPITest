@@ -9,6 +9,12 @@
 import Foundation
 import Alamofire
 
+/*
+ else if let jsonArray = response.result.value as? [[String : Any]]
+ {
+ completion(jsonArray, nil)
+ }
+ */
 class NetworkingClient {
     
     typealias webServiceResponse = ([[String: Any]]?, Error?) -> Void
@@ -22,10 +28,7 @@ class NetworkingClient {
             if let error = response.error {
                 completion(nil, error)
             }
-            else if let jsonArray = response.result.value as? [[String : Any]]
-            {
-                completion(jsonArray, nil)
-            } // Getting json dictionary
+             // Getting json dictionary
             else if let jsonDict = response.result.value as? [String: Any] {
                 completion([jsonDict], nil)
             }
