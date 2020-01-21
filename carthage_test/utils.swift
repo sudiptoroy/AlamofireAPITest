@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TimeConversion {
+class Utils {
     
     // Timestamp to Custom format conversion
     func getDateFromTimeStamp(timeStamp : Double) -> String {

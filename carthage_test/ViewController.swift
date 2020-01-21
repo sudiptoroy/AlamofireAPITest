@@ -14,9 +14,11 @@ import Alamofire
 class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var timeTextView: UITextView!
+    @IBOutlet weak var precipProbTextView: UITextView!
     
     private let networkingClient = NetworkingClient()
-    private let timeConvertion = TimeConversion()
+    private let timeConvertion = Utils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +49,33 @@ class ViewController: UIViewController {
                 // Show time
                 let time = dataDict!["time"] as? Double
                 let getTime = self.timeConvertion.getDateFromTimeStamp(timeStamp: time!)
-                print("Time = \(getTime)")
-                self.textView.text = getTime
+                self.timeTextView.text = getTime
                 
                 
                 // Show summary from currently from Weather api
                 self.textView.text = dataDict!["summary"] as? String
-            
+                
+                
+                // Show Average of precipProbability
+                let minutelyDict = json[0]["minutely"] as? [String: Any]
+                let dataArray = minutelyDict!["data"] as! NSArray
+                
+                var i = 0 // Loop Counter
+                var count = 0 // precipProbability counter when not zero
+                var sum = 0 as Double // Sum of precipProbability
+                for _ in dataArray {
+                    
+                    let item = dataArray[i] as! [String: Any]
+                    let precipProb = item["precipProbability"] as! Double
+                    if precipProb != 0 {
+                        sum = sum + precipProb
+                        count+=1
+                    }
+                    i+=1
+                }
+                let avg = sum / Double(count)
+                let showAvg = String(avg)
+                self.precipProbTextView.text = showAvg
             }
         }
     }
